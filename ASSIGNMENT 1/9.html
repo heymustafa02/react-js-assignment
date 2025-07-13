@@ -1,0 +1,43 @@
+<!--
+Q7. Limited Click Counter with Reset (Use of while)
+Problem: Limit the user to 5 clicks. After 5 clicks, disable the button. Allow reset.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Limited Click Counter</title>
+</head>
+<body>
+  <h2>Click Counter (Max 5 Clicks)</h2>
+  <button id="clickBtn" onclick="countClick()">Click Me</button>
+  <button onclick="resetCounter()">Reset</button>
+  <p id="countDisplay">Clicks: 0</p>
+
+  <script>
+    var count = 0;
+
+    function countClick() {
+      var btn = document.getElementById("clickBtn");
+
+      var i = count;
+      while (i < 5) {
+        count++;
+        document.getElementById("countDisplay").innerText = "Clicks: " + count;
+        break;
+      }
+
+      if (count >= 5) {
+        btn.disabled = true;
+        document.getElementById("countDisplay").innerText += " (Limit Reached)";
+      }
+    }
+
+    function resetCounter() {
+      count = 0;
+      document.getElementById("clickBtn").disabled = false;
+      document.getElementById("countDisplay").innerText = "Clicks: 0";
+    }
+  </script>
+</body>
+</html>

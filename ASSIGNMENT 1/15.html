@@ -1,0 +1,28 @@
+<!--
+Q13. Assignment (for-of): Take an array of numbers and calculate the sum using for-of
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum Using for-of</title>
+</head>
+<body>
+  <h2>Calculate Sum of Numbers in Array</h2>
+  <button onclick="calculateSum()">Show Sum</button>
+  <p id="result"></p>
+
+  <script>
+    function calculateSum() {
+      var numbers = [10, 20, 30, 40, 50];
+      var sum = 0;
+
+      for (var num of numbers) {
+        sum = sum + num;
+      }
+
+      document.getElementById("result").innerText = "Sum: " + sum;
+    }
+  </script>
+</body>
+</html>

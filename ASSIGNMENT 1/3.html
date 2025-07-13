@@ -1,0 +1,36 @@
+<!--
+Q1. Vowel or Consonant Checker
+Problem: Input a letter. Check if it’s a vowel (a, e, i , o, u) or consonant.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vowel or Consonant Checker</title>
+</head>
+<body>
+  <h2>Enter a letter</h2>
+  <input type="text" id="letterInput" maxlength="1">
+  <button onclick="checkLetter()">Check</button>
+  <p id="result"></p>
+
+  <script>
+    function checkLetter() {
+      var ch = document.getElementById("letterInput").value.toLowerCase();
+      var result = "";
+
+      if (ch >= 'a' && ch <= 'z') {
+        if (ch === 'a' || ch === 'e' || ch === 'i' || ch === 'o' || ch === 'u') {
+          result = ch + " is a Vowel.";
+        } else {
+          result = ch + " is a Consonant.";
+        }
+      } else {
+        result = "Please enter a valid alphabet letter.";
+      }
+
+      document.getElementById("result").innerText = result;
+    }
+  </script>
+</body>
+</html>

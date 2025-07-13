@@ -1,0 +1,49 @@
+<!--
+Q9. Number Status Analyzer
+Problem:
+- Prompt the user 5 times using a for loop
+- Check whether the input is a valid number
+- Classify each as positive, negative, or zero
+- Display the count of each
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Status Analyzer</title>
+</head>
+<body>
+  <h2>Click to Start Number Status Analyzer</h2>
+  <button onclick="analyzeNumbers()">Start</button>
+  <p id="result"></p>
+
+  <script>
+    function analyzeNumbers() {
+      var positive = 0;
+      var negative = 0;
+      var zero = 0;
+
+      for (var i = 1; i <= 5; i++) {
+        var input = prompt("Enter number " + i + ":");
+        var num = parseFloat(input);
+
+        if (isNaN(num)) {
+          alert("Invalid input. Please enter a number.");
+          i--; // Ask again if input was invalid
+        } else {
+          if (num > 0) {
+            positive++;
+          } else if (num < 0) {
+            negative++;
+          } else {
+            zero++;
+          }
+        }
+      }
+
+      document.getElementById("result").innerText =
+        "Positive: " + positive + "\nNegative: " + negative + "\nZero: " + zero;
+    }
+  </script>
+</body>
+</html>

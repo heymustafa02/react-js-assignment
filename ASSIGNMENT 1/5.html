@@ -1,0 +1,31 @@
+<!--
+Q3. Counter: Increment and Decrement
+Problem: Make a counter that increases when "+" is clicked and decreases when "-" is clicked.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Counter</title>
+</head>
+<body>
+  <h2>Counter</h2>
+  <button onclick="decrease()">-</button>
+  <span id="countValue">0</span>
+  <button onclick="increase()">+</button>
+
+  <script>
+    var count = 0;
+
+    function increase() {
+      count = count + 1;
+      document.getElementById("countValue").innerText = count;
+    }
+
+    function decrease() {
+      count = count - 1;
+      document.getElementById("countValue").innerText = count;
+    }
+  </script>
+</body>
+</html>

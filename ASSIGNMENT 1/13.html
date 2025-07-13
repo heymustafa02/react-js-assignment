@@ -1,0 +1,40 @@
+<!--
+Q11. Multiplication Table Grid
+Problem:
+Take a number N as input and print multiplication tables from 1 to N in a grid format.
+
+Example if N = 3, output:
+1 2 3
+2 4 6
+3 6 9
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Table Grid</title>
+</head>
+<body>
+  <h2>Enter a number</h2>
+  <input type="number" id="numInput">
+  <button onclick="printTable()">Print Table Grid</button>
+  <pre id="result"></pre>
+
+  <script>
+    function printTable() {
+      var n = parseInt(document.getElementById("numInput").value);
+      var output = "";
+
+      for (var i = 1; i <= n; i++) {
+        for (var j = 1; j <= n; j++) {
+          output += (i * j) + " ";
+        }
+        output += "\n";
+      }
+
+      document.getElementById("result").innerText = output;
+    }
+  </script>
+</body>
+</html>
+    

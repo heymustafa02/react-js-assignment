@@ -1,0 +1,63 @@
+<!--
+Q15. Weekly Sales Analyzer
+Problem:
+- Accept daily sales input for 7 days
+- Display:
+  → Total sales
+  → Average sales
+  → Highest & lowest sales
+  → Days with below-average sales
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weekly Sales Analyzer</title>
+</head>
+<body>
+  <h2>Click to Enter Sales for 7 Days</h2>
+  <button onclick="analyzeSales()">Analyze Sales</button>
+  <pre id="result"></pre>
+
+  <script>
+    function analyzeSales() {
+      var sales = [];
+      var total = 0;
+
+      // Get sales for 7 days
+      for (var i = 0; i < 7; i++) {
+        var input = prompt("Enter sales for Day " + (i + 1) + ":");
+        var sale = parseFloat(input);
+
+        if (isNaN(sale)) {
+          alert("Invalid number! Please enter again.");
+          i--; // Ask again
+        } else {
+          sales.push(sale);
+          total += sale;
+        }
+      }
+
+      var average = total / 7;
+      var highest = sales[0];
+      var lowest = sales[0];
+      var belowAverageDays = [];
+
+      for (var i = 0; i < 7; i++) {
+        if (sales[i] > highest) highest = sales[i];
+        if (sales[i] < lowest) lowest = sales[i];
+        if (sales[i] < average) belowAverageDays.push("Day " + (i + 1));
+      }
+
+      var output = "";
+      output += "Total Sales: " + total + "\n";
+      output += "Average Sales: " + average.toFixed(2) + "\n";
+      output += "Highest Sale: " + highest + "\n";
+      output += "Lowest Sale: " + lowest + "\n";
+      output += "Days with Below-Average Sales: " + (belowAverageDays.length > 0 ? belowAverageDays.join(", ") : "None");
+
+      document.getElementById("result").innerText = output;
+    }
+  </script>
+</body>
+</html>

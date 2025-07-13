@@ -1,0 +1,56 @@
+<!--
+Q14. Ratings Analyzer
+Problem:
+- Collect 5 ratings (from 1 to 5) in an array
+- Display:
+  → Count of each rating
+  → Average rating
+  → Number of 5-star ratings
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rating Analyzer</title>
+</head>
+<body>
+  <h2>Click to Analyze 5 Ratings</h2>
+  <button onclick="analyzeRatings()">Analyze Ratings</button>
+  <pre id="result"></pre>
+
+  <script>
+    function analyzeRatings() {
+      // Sample array of 5 ratings (can be replaced with user input if needed)
+      var ratings = [5, 3, 5, 4, 2];
+
+      var count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0;
+      var total = 0;
+
+      for (var i = 0; i < ratings.length; i++) {
+        var r = ratings[i];
+        total = total + r;
+
+        if (r === 1) count1++;
+        else if (r === 2) count2++;
+        else if (r === 3) count3++;
+        else if (r === 4) count4++;
+        else if (r === 5) count5++;
+      }
+
+      var average = total / ratings.length;
+
+      var output = "";
+      output += "Rating Counts:\n";
+      output += "1-star: " + count1 + "\n";
+      output += "2-star: " + count2 + "\n";
+      output += "3-star: " + count3 + "\n";
+      output += "4-star: " + count4 + "\n";
+      output += "5-star: " + count5 + "\n\n";
+      output += "Average Rating: " + average.toFixed(2) + "\n";
+      output += "Number of 5-star ratings: " + count5;
+
+      document.getElementById("result").innerText = output;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!--
+Q5. Simple Calculator
+Problem: Build a calculator using a switch statement that performs one of the following operations: +, –, ×, ÷
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+</head>
+<body>
+  <h2>Simple Calculator</h2>
+
+  <input type="number" id="num1" placeholder="Enter first number">
+  <select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">×</option>
+    <option value="/">÷</option>
+  </select>
+  <input type="number" id="num2" placeholder="Enter second number">
+
+  <button onclick="calculate()">Calculate</button>
+  <p id="result"></p>
+
+  <script>
+    function calculate() {
+      var a = parseFloat(document.getElementById("num1").value);
+      var b = parseFloat(document.getElementById("num2").value);
+      var op = document.getElementById("operator").value;
+      var answer;
+
+      switch(op) {
+        case '+':
+          answer = a + b;
+          break;
+        case '-':
+          answer = a - b;
+          break;
+        case '*':
+          answer = a * b;
+          break;
+        case '/':
+          if (b !== 0) {
+            answer = a / b;
+          } else {
+            answer = "Cannot divide by zero";
+          }
+          break;
+        default:
+          answer = "Invalid operator";
+      }
+
+      document.getElementById("result").innerText = "Result: " + answer;
+    }
+  </script>
+</body>
+</html>

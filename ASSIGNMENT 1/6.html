@@ -1,0 +1,37 @@
+<!--
+Q4. Number of Days
+Problem: Take a number from 1 to 7 as input and display the corresponding day name using a switch statement.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Day Finder</title>
+</head>
+<body>
+  <h2>Enter a number (1 to 7)</h2>
+  <input type="number" id="dayInput">
+  <button onclick="showDay()">Show Day</button>
+  <p id="result"></p>
+
+  <script>
+    function showDay() {
+      var num = parseInt(document.getElementById("dayInput").value);
+      var day = "";
+
+      switch(num) {
+        case 1: day = "Sunday"; break;
+        case 2: day = "Monday"; break;
+        case 3: day = "Tuesday"; break;
+        case 4: day = "Wednesday"; break;
+        case 5: day = "Thursday"; break;
+        case 6: day = "Friday"; break;
+        case 7: day = "Saturday"; break;
+        default: day = "Invalid number. Please enter between 1 and 7.";
+      }
+
+      document.getElementById("result").innerText = "Day: " + day;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!--
+Q2. Password Strength Checker
+Problem: Take a password and check:
+- Less than 6 characters → Weak
+- Contains numbers, upper & lower case → Strong
+- Else → Medium
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Password Strength Checker</title>
+</head>
+<body>
+  <h2>Enter a Password</h2>
+  <input type="text" id="passwordInput">
+  <button onclick="checkStrength()">Check Strength</button>
+  <p id="result"></p>
+
+  <script>
+    function checkStrength() {
+      var pwd = document.getElementById("passwordInput").value;
+      var hasUpper = false;
+      var hasLower = false;
+      var hasNumber = false;
+
+      for (var i = 0; i < pwd.length; i++) {
+        var ch = pwd[i];
+        if (ch >= 'A' && ch <= 'Z') {
+          hasUpper = true;
+        } else if (ch >= 'a' && ch <= 'z') {
+          hasLower = true;
+        } else if (ch >= '0' && ch <= '9') {
+          hasNumber = true;
+        }
+      }
+
+      var result = "";
+
+      if (pwd.length < 6) {
+        result = "Weak Password";
+      } else if (hasUpper && hasLower && hasNumber) {
+        result = "Strong Password";
+      } else {
+        result = "Medium Strength Password";
+      }
+
+      document.getElementById("result").innerText = result;
+    }
+  </script>
+</body>
+</html>

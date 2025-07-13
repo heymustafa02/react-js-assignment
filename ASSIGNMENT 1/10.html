@@ -1,0 +1,29 @@
+<!--
+Q8. Guess the Secret Number (do...while)
+Problem: Let the user guess a number between 1–10. Keep prompting until they guess it correctly.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guess the Secret Number</title>
+</head>
+<body>
+  <h2>Guess the Secret Number (1 to 10)</h2>
+  <button onclick="startGame()">Start Game</button>
+
+  <script>
+    function startGame() {
+      var secret = 7; // You can change the secret number here
+      var guess;
+
+      do {
+        guess = prompt("Guess a number between 1 and 10:");
+        guess = parseInt(guess);
+      } while (guess !== secret);
+
+      alert("Correct! The secret number was " + secret);
+    }
+  </script>
+</body>
+</html>

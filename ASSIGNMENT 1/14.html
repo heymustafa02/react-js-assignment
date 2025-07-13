@@ -1,0 +1,37 @@
+<!--
+Q12. Assignment (for-in): Count how many properties an object has and display keys and values.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Object Property Counter</title>
+</head>
+<body>
+  <h2>Object Properties</h2>
+  <button onclick="showProperties()">Show Properties</button>
+  <pre id="result"></pre>
+
+  <script>
+    function showProperties() {
+      var person = {
+        name: "Ali",
+        age: 20,
+        city: "Mumbai",
+        hobby: "Coding"
+      };
+
+      var count = 0;
+      var output = "";
+
+      for (var key in person) {
+        output += key + ": " + person[key] + "\n";
+        count++;
+      }
+
+      output += "\nTotal properties: " + count;
+      document.getElementById("result").innerText = output;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!--
+Q10. Number Pyramid
+Problem:
+Take a number N as input and print a number pyramid of N rows.
+
+Example if N = 5:
+1
+12
+123
+1234
+12345
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Pyramid</title>
+</head>
+<body>
+  <h2>Enter number of rows</h2>
+  <input type="number" id="rowInput">
+  <button onclick="printPyramid()">Print Pyramid</button>
+  <pre id="result"></pre>
+
+  <script>
+    function printPyramid() {
+      var n = parseInt(document.getElementById("rowInput").value);
+      var output = "";
+
+      for (var i = 1; i <= n; i++) {
+        for (var j = 1; j <= i; j++) {
+          output += j;
+        }
+        output += "\n";
+      }
+
+      document.getElementById("result").innerText = output;
+    }
+  </script>
+</body>
+</html>
