@@ -1,0 +1,37 @@
+<!-- 15. Library Book Tracker -->
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>15. Book Tracker</h3>
+  <input type="text" id="book" placeholder="Book name">
+  <button onclick="addBook()">Add</button>
+  <button onclick="removeBook()">Remove</button>
+  <button onclick="listBooks()">Show</button>
+  <p id="q15"></p>
+
+  <script>
+    const library = {
+      books: [],
+      add(book) { this.books.push(book); },
+      remove(book) { this.books = this.books.filter(b => b !== book); },
+      list() { return this.books; }
+    };
+
+    function addBook() {
+      const b = document.getElementById("book").value;
+      library.add(b);
+      document.getElementById("book").value = '';
+    }
+
+    function removeBook() {
+      const b = document.getElementById("book").value;
+      library.remove(b);
+      document.getElementById("book").value = '';
+    }
+
+    function listBooks() {
+      document.getElementById("q15").innerText = library.list().join(", ");
+    }
+  </script>
+</body>
+</html>

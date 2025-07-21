@@ -1,0 +1,61 @@
+<!-- 17. User Authentication with Closure -->
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>17. User Auth with Closure</h3>
+  <input type="text" id="user" placeholder="Username">
+  <input type="password" id="pass" placeholder="Password">
+  <button onclick="create()">Create User</button><br><br>
+
+  <input type="text" id="loginUser" placeholder="Login Username">
+  <input type="password" id="loginPass" placeholder="Login Password">
+  <button onclick="login()">Login</button><br><br>
+
+  <input type="password" id="oldPass" placeholder="Old Password">
+  <input type="password" id="newPass" placeholder="New Password">
+  <button onclick="changePass()">Change Password</button>
+
+  <p id="q17"></p>
+
+  <script>
+    let user;
+
+    function create() {
+      const username = document.getElementById("user").value;
+      const password = document.getElementById("pass").value;
+
+      user = (function() {
+        let _pass = password;
+        return {
+          login: function(u, p) {
+            return u === username && p === _pass;
+          },
+          changePassword: function(oldP, newP) {
+            if (oldP === _pass) {
+              _pass = newP;
+              return true;
+            }
+            return false;
+          }
+        };
+      })();
+
+      document.getElementById("q17").innerText = "User Created!";
+    }
+
+    function login() {
+      const u = document.getElementById("loginUser").value;
+      const p = document.getElementById("loginPass").value;
+      const result = user && user.login(u, p);
+      document.getElementById("q17").innerText = result ? "Login Success" : "Login Failed";
+    }
+
+    function changePass() {
+      const oldP = document.getElementById("oldPass").value;
+      const newP = document.getElementById("newPass").value;
+      const result = user && user.changePassword(oldP, newP);
+      document.getElementById("q17").innerText = result ? "Password Changed" : "Wrong Old Password";
+    }
+  </script>
+</body>
+</html>

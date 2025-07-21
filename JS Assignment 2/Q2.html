@@ -1,0 +1,34 @@
+<!-- Q2: Count occurrences of each character in a string -->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <h3>Enter a string:</h3>
+    <input id="text" type="text" placeholder="e.g. hello"><br><br>
+    <button onclick="countChars()">Count Characters</button>
+    <p id="output"></p>
+
+    <script>
+      function countChars() {
+        var str = document.getElementById("text").value;
+        var counts = {};
+        var result = "";
+
+        for (var i = 0; i < str.length; i++) {
+          var ch = str[i];
+          if (counts[ch]) {
+            counts[ch]++;
+          } else {
+            counts[ch] = 1;
+          }
+        }
+
+        for (var key in counts) {
+          result += key + ": " + counts[key] + "<br>";
+        }
+
+        document.getElementById("output").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!-- 16. Counter App using Closure -->
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>16. Counter with Closure</h3>
+  <button onclick="counter.increase()">+</button>
+  <button onclick="counter.decrease()">-</button>
+  <p id="q16">0</p>
+
+  <script>
+    function createCounter() {
+      let count = 0;
+      return {
+        increase: function() {
+          count++;
+          document.getElementById("q16").innerText = count;
+        },
+        decrease: function() {
+          count--;
+          document.getElementById("q16").innerText = count;
+        }
+      };
+    }
+
+    const counter = createCounter();
+  </script>
+</body>
+</html>

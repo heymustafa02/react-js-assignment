@@ -1,0 +1,39 @@
+<!-- Q4: Find second lowest and second greatest number in array -->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <h3>Enter numbers (comma-separated):</h3>
+    <input id="numbers" type="text" placeholder="e.g. 1,2,3,4,5"><br><br>
+    <button onclick="findSecond()">Find</button>
+    <p id="result"></p>
+
+    <script>
+      function findSecond() {
+        var input = document.getElementById("numbers").value;
+        var parts = input.split(",");
+        var arr = [];
+        for (var i = 0; i < parts.length; i++) {
+          var num = parseInt(parts[i]);
+          if (!isNaN(num)) {
+            arr.push(num);
+          }
+        }
+
+        arr.sort(function(a, b) { return a - b; });
+
+        var unique = [];
+        for (var j = 0; j < arr.length; j++) {
+          if (arr[j] !== arr[j - 1]) {
+            unique.push(arr[j]);
+          }
+        }
+
+        var secondLow = unique[1];
+        var secondHigh = unique[unique.length - 2];
+
+        document.getElementById("result").innerHTML = "Second Lowest: " + secondLow + "<br>Second Greatest: " + secondHigh;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!-- 14. Event Manager Object -->
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>14. Event Manager</h3>
+  <input type="text" id="eventName" placeholder="Event name">
+  <button onclick="addEvent()">Add</button>
+  <button onclick="listEvents()">List</button>
+  <p id="q14"></p>
+
+  <script>
+    const eventManager = {
+      events: [],
+      add: function(name) { this.events.push(name); },
+      list: function() { return this.events; }
+    };
+
+    function addEvent() {
+      const name = document.getElementById("eventName").value;
+      eventManager.add(name);
+      document.getElementById("eventName").value = '';
+    }
+
+    function listEvents() {
+      document.getElementById("q14").innerText = eventManager.list().join(", ");
+    }
+  </script>
+</body>
+</html>

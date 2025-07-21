@@ -1,0 +1,30 @@
+<!-- Q9: Find sum of even and odd numbers -->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <h3>Enter numbers (comma-separated)</h3>
+    <input id="nums" type="text" placeholder="e.g. 1,2,3,4"><br><br>
+    <button onclick="sumEvenOdd()">Get Sum</button>
+    <p id="sum"></p>
+
+    <script>
+      function sumEvenOdd() {
+        var arr = document.getElementById("nums").value.split(",");
+        var even = 0;
+        var odd = 0;
+
+        for (var i = 0; i < arr.length; i++) {
+          var n = parseInt(arr[i]);
+          if (n % 2 == 0) {
+            even += n;
+          } else {
+            odd += n;
+          }
+        }
+
+        document.getElementById("sum").innerHTML = "Even Sum: " + even + "<br>Odd Sum: " + odd;
+      }
+    </script>
+  </body>
+</html>

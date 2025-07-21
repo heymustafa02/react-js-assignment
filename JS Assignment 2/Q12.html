@@ -1,0 +1,47 @@
+<!-- 12 Stack and Queue Implementation 
+Problem: Write JavaScript to implement a simple stack and queue -->
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Enter a value:</p>
+  <input id="q12input" type="text">
+  <button onclick="pushStack()">Push (Stack)</button>
+  <button onclick="popStack()">Pop (Stack)</button>
+  <button onclick="enqueue()">Enqueue (Queue)</button>
+  <button onclick="dequeue()">Dequeue (Queue)</button>
+  <p id="q12output"></p>
+
+  <script>
+    let stack = [];
+    let queue = [];
+
+    function pushStack() {
+      let val = document.getElementById("q12input").value;
+      stack.push(val);
+      updateOutput();
+    }
+
+    function popStack() {
+      stack.pop();
+      updateOutput();
+    }
+
+    function enqueue() {
+      let val = document.getElementById("q12input").value;
+      queue.push(val);
+      updateOutput();
+    }
+
+    function dequeue() {
+      queue.shift();
+      updateOutput();
+    }
+
+    function updateOutput() {
+      document.getElementById("q12output").innerHTML = 
+        "Stack: " + stack.join(', ') + "<br>" +
+        "Queue: " + queue.join(', ');
+    }
+  </script>
+</body>
+</html>

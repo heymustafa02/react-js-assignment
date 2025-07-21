@@ -1,0 +1,20 @@
+<!-- 10 Filter Negative Values
+Problem: Write JavaScript to filter negative values from an array and display them. -->
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Enter numbers separated by commas:</p>
+  <input id="q10input" type="text">
+  <button onclick="filterNegatives()">Submit</button>
+  <p id="q10output"></p>
+
+  <script>
+    function filterNegatives() {
+      let input = document.getElementById("q10input").value;
+      let arr = input.split(',').map(Number);
+      let result = arr.filter(x => x >= 0);
+      document.getElementById("q10output").innerText = "Filtered: " + result.join(', ');
+    }
+  </script>
+</body>
+</html>

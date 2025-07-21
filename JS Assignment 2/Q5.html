@@ -1,0 +1,23 @@
+<!-- Q5: Pass a function as a parameter -->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <h3>Enter your name:</h3>
+    <input id="name" type="text" placeholder="e.g. John"><br><br>
+    <button onclick="showGreeting()">Greet</button>
+    <p id="result"></p>
+
+    <script>
+      function greet(name) {
+        return "Hello, " + name + "!";
+      }
+
+      function showGreeting() {
+        var username = document.getElementById("name").value;
+        var msg = greet(username);
+        document.getElementById("result").innerHTML = msg;
+      }
+    </script>
+  </body>
+</html>

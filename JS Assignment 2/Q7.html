@@ -1,0 +1,35 @@
+<!-- Q7: Find the difference between two arrays -->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <h3>Enter two arrays (comma-separated)</h3>
+    <input id="array1" type="text" placeholder="e.g. 1,2,3"><br><br>
+    <input id="array2" type="text" placeholder="e.g. 2,3,4"><br><br>
+    <button onclick="findDifference()">Find Difference</button>
+    <p id="result"></p>
+
+    <script>
+      function findDifference() {
+        var arr1 = document.getElementById("array1").value.split(",");
+        var arr2 = document.getElementById("array2").value.split(",");
+        var diff = [];
+
+        for (var i = 0; i < arr1.length; i++) {
+          var found = false;
+          for (var j = 0; j < arr2.length; j++) {
+            if (arr1[i].trim() == arr2[j].trim()) {
+              found = true;
+              break;
+            }
+          }
+          if (!found) {
+            diff.push(arr1[i].trim());
+          }
+        }
+
+        document.getElementById("result").innerHTML = "Difference: " + diff.join(", ");
+      }
+    </script>
+  </body>
+</html>

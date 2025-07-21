@@ -1,0 +1,26 @@
+<!-- Q8: Multiply each element of an array by a number -->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <h3>Enter array and multiplier</h3>
+    <input id="numbers" type="text" placeholder="e.g. 1,2,3"><br><br>
+    <input id="multiplier" type="text" placeholder="e.g. 2"><br><br>
+    <button onclick="multiplyArray()">Multiply</button>
+    <p id="output"></p>
+
+    <script>
+      function multiplyArray() {
+        var arr = document.getElementById("numbers").value.split(",");
+        var num = parseInt(document.getElementById("multiplier").value);
+        var result = [];
+
+        for (var i = 0; i < arr.length; i++) {
+          result.push(parseInt(arr[i]) * num);
+        }
+
+        document.getElementById("output").innerHTML = "Result: " + result.join(", ");
+      }
+    </script>
+  </body>
+</html>
